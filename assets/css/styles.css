@@ -183,6 +183,10 @@ footer {
   text-align: center;
 }
 
+.settings {
+  width: 30px;
+}
+
 .settings:hover {
   transition-duration: 250ms;
   rotate: 60deg;
