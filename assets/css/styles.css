@@ -53,7 +53,7 @@
 }
 
 html {
-  font-size: 22px;
+  /* font-size: 22px; */
 }
 
 /* Body */
@@ -95,7 +95,7 @@ main {
   outline: none;
 }
 
-.test {
+.container {
   position: relative;
 }
 
@@ -140,10 +140,28 @@ button {
   margin-bottom: 1rem;
 }
 
+.encrypt:hover {
+  background-color: var(--dark-blue-400);
+  cursor: pointer;
+}
+
+.encrypt:active {
+  background-color: var(--dark-blue-500);
+}
+
 .decrypt {
   background-color: inherit;
   color: var(--dark-blue-300);
   border: var(--dark-blue-300) 1px solid;
+}
+
+.decrypt:hover {
+  background-color: var(--light-blue-300);
+  cursor: pointer;
+}
+
+.decrypt:active {
+  background-color: var(--light-blue-400);
 }
 
 .copy {
@@ -174,7 +192,7 @@ button {
   margin: 1rem 0;
 }
 
-.error-msg {
+.error-msg, .output-msg {
   color: var(--gray-500);
   margin: 1rem 0;
 }
