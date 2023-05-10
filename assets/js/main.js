@@ -18,11 +18,10 @@ let config = {
         uppercase: /(?=.*[A-Z])/,
         // lowercase: /(?=.*[a-z])/,
         // space: /\s/,
-        // punctuation: /(?=.*[,.;:])/,
+        // punctuation: /(?=.*[,.;:¡!¿?])/,
         digits: /(?=.*\d)/,
         accents: /(?=.*[À-ÿ])/,
-        // TODO: Delete this unnecesary `\`
-        symbols: /(?=.*[¡!¿?@#$%^&*)(=<>{\[\]}'"|~`+_-])/,
+        symbols: /(?=.*[@#$%^&*)(=<>[\]/}{'"|~`+_-])/,
     },
     hash: hash.alura5,
 };
