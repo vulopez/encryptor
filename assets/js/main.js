@@ -1,13 +1,22 @@
 const input = document.querySelector("#text"); // <textarea> selector
 const output = document.querySelector(".output-msg"); // response <p> selector
 
+const alertIcon = document.querySelector(".alert-icon"); // alert title <p> selector
+const alertText = document.querySelector(".alert-msg"); // alert title <p> selector
+
+const errorTitle = document.querySelector(".error-title"); // error title <p> selector
+const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
+
 const hash = {
     alura5: {
-        a: "ai",
-        e: "enter",
-        i: "imes",
-        o: "ober",
-        u: "ufat",
+        encrypt: pairValues,
+        set: [
+            ["a", "ai"],
+            ["e", "enter"],
+            ["i", "imes"],
+            ["o", "ober"],
+            ["u", "ufat"],
+        ],
     },
 };
 
@@ -18,21 +27,35 @@ let config = {
         uppercase: /(?=.*[A-Z])/,
         // lowercase: /(?=.*[a-z])/,
         // space: /\s/,
-        // punctuation: /(?=.*[,.;:])/,
+        // punctuation: /(?=.*[,.;:¡!¿?])/,
         digits: /(?=.*\d)/,
         accents: /(?=.*[À-ÿ])/,
-        // TODO: Delete this unnecesary `\`
-        symbols: /(?=.*[¡!¿?@#$%^&*)(=<>{\[\]}'"|~`+_-])/,
+        symbols: /(?=.*[@#$%^&*)(=<>[\]/}{'"|~`+_-])/,
     },
-    hash: hash.alura5,
 };
+
+function pairValues(text) {
+    // TODO: Use `this`
+    const keys = config.method.set;
+    const result = text.split("");
+
+    const fixed = result.map(function (char) {
+        for (const element of keys) {
+            if (char === element[0]) return element[1];
+        }
+        return char;
+    });
+
+    return fixed.join("");
+}
 
 function tryEncrypt() {
     const text = input.value;
+    // Set as default default value: gray color
+    setTextColor("--gray-400", alertText);
+    alertIcon.setAttribute('src', "assets/icons/Alert.svg");
 
-    if (contains(text, config.exceptions)) return cannotEncrypt();
-
-    return encrypt();
+    contains(text, config.exceptions) ? cannotEncrypt() : encrypt(text);
 }
 
 /**
@@ -53,12 +76,41 @@ function contains(str, pattern) {
     return false;
 }
 
-// TODO: Make this function work
-function encrypt() {
-    console.log("I can encrypt it! 😁");
+function encrypt(text) {
+    const method = config.method;
+
+    displayElement("none", errorTitle, errorMsg);
+    displayElement("block", output);
+
+    output.innerHTML = method.encrypt(text);
 }
 
-// TODO: Make this function work
 function cannotEncrypt() {
-    console.log("I can't encrypt that! 😞");
+    displayElement("block", errorTitle, errorMsg);
+    displayElement("none", output);
+
+    setTextColor("--red-500", alertText);
+    alertIcon.setAttribute('src', "assets/icons/Alert-active.svg");
+
+    alertIcon.classList.add('shake');
+    delay(1000).then(() => alertIcon.classList.remove('shake'));
 }
+
+function displayElement(display, ...element) {
+    for (const elem of element) {
+        elem.style.display = display;
+    }
+}
+
+function setTextColor(color, ...element) {
+    const r = document.querySelector(':root');
+    const rs = getComputedStyle(r);
+
+    for (const elem of element) {
+        elem.style.color = rs.getPropertyValue(color);
+    }
+}
+
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
