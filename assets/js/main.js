@@ -51,6 +51,9 @@ function pairValues(text) {
 
 function tryEncrypt() {
     const text = input.value;
+    // Set as default default value: gray color
+    setTextColor("--gray-400", alertText);
+    alertIcon.setAttribute('src', "assets/icons/Alert.svg");
 
     contains(text, config.exceptions) ? cannotEncrypt() : encrypt(text);
 }
@@ -88,6 +91,9 @@ function cannotEncrypt() {
 
     setTextColor("--red-500", alertText);
     alertIcon.setAttribute('src', "assets/icons/Alert-active.svg");
+
+    alertIcon.classList.add('shake');
+    delay(1000).then(() => alertIcon.classList.remove('shake'));
 }
 
 function displayElement(display, ...element) {
@@ -101,7 +107,7 @@ function setTextColor(color, ...element) {
     const rs = getComputedStyle(r);
 
     for (const elem of element) {
-        elem.style.color = rs.getPropertyValue("--red-500");
+        elem.style.color = rs.getPropertyValue(color);
     }
 }
 
