@@ -1,6 +1,9 @@
 const input = document.querySelector("#text"); // <textarea> selector
 const output = document.querySelector(".output-msg"); // response <p> selector
 
+const alertIcon = document.querySelector(".alert-icon"); // alert title <p> selector
+const alertText = document.querySelector(".alert-msg"); // alert title <p> selector
+
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
@@ -73,19 +76,35 @@ function contains(str, pattern) {
 function encrypt(text) {
     const method = config.method;
 
-    displayElement('none', errorTitle, errorMsg);
-    displayElement('block', output);
+    displayElement("none", errorTitle, errorMsg);
+    displayElement("block", output);
 
-    output.innerHTML = method.encrypt(text)
+    output.innerHTML = method.encrypt(text);
 }
 
-// TODO: Make this function work
 function cannotEncrypt() {
-    console.log("I can't encrypt that! 😞");
+    displayElement("block", errorTitle, errorMsg);
+    displayElement("none", output);
+
+    setTextColor("--red-500", alertText);
+    alertIcon.setAttribute('src', "assets/icons/Alert-active.svg");
 }
 
 function displayElement(display, ...element) {
-    for (const e of element) {
-        e.style.display = display;
+    for (const elem of element) {
+        elem.style.display = display;
     }
 }
+
+function setTextColor(color, ...element) {
+    const r = document.querySelector(':root');
+    const rs = getComputedStyle(r);
+
+    for (const elem of element) {
+        elem.style.color = rs.getPropertyValue("--red-500");
+    }
+}
+
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
