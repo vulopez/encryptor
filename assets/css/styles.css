@@ -186,15 +186,17 @@ button {
 }
 
 .error-title {
-  color: var(--gray-500);
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.error-title, .error-msg, .output-msg {
+  color: var(--gray-500);
   margin: 1rem 0;
 }
 
-.error-msg, .output-msg {
-  color: var(--gray-500);
-  margin: 1rem 0;
+.output-msg {
+  display: none;
 }
 
 footer {
