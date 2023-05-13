@@ -7,6 +7,40 @@ const alertText = document.querySelector(".alert-msg"); // alert title <p> selec
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
+const btnEncrypt = document.querySelector(".encrypt");
+const btnDecrypt = document.querySelector(".decrypt");
+
+input.addEventListener("input", function () {
+
+    alertText.innerHTML = "Solo letras minúsculas y sin acentos";
+
+    if (contains(input.value, config.exceptions)) {
+        btnEncrypt.setAttribute("disabled", "true");
+        btnDecrypt.setAttribute("disabled", "true");
+
+        setTextColor("--red-500", alertText);
+        alertIcon.setAttribute("src", "assets/icons/Alert-active.svg");
+
+        alertIcon.classList.add("shake");
+        delay(1000).then(() => alertIcon.classList.remove("shake"));
+    } else {
+        btnEncrypt.removeAttribute("disabled");
+        btnDecrypt.removeAttribute("disabled");
+
+        setTextColor("--gray-400", alertText);
+        alertIcon.setAttribute("src", "assets/icons/Alert.svg");
+    }
+
+    if (input.value == '') {
+        console.log(true);
+        alertText.innerHTML = "Ingrese el texto a procesar";
+        btnEncrypt.setAttribute("disabled", "true");
+        btnDecrypt.setAttribute("disabled", "true");
+    } else {
+
+    }
+});
+
 const hash = {
     alura5: {
         encrypt: pairValues,
@@ -22,6 +56,7 @@ const hash = {
 
 let config = {
     method: hash.alura5,
+    liveMode: true,
     strict: true,
     exceptions: {
         uppercase: /(?=.*[A-Z])/,
@@ -113,4 +148,4 @@ function setTextColor(color, ...element) {
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
-  }
+}
