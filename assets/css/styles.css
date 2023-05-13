@@ -12,8 +12,8 @@
 /* Scroll Bar */
 
 ::-webkit-scrollbar {
-  width: .7rem;
-  height: .7rem;
+  width: 0.7rem;
+  height: 0.7rem;
 }
 
 /* Track */
@@ -143,9 +143,13 @@ alert > * {
 
 /* Button's styles */
 button {
+  transition: background-color 0.5s ease;
   display: block;
   /* TODO: Check this fonst size or replace for :root */
   font-size: 18px;
+}
+
+.actions > button {
   width: 100%;
   height: 3.5rem;
   border-radius: 1rem;
@@ -166,6 +170,11 @@ button {
   background-color: var(--dark-blue-500);
 }
 
+.encrypt:disabled {
+  background-color: var(--gray-200);
+  cursor: not-allowed;
+}
+
 .decrypt {
   background-color: inherit;
   color: var(--dark-blue-300);
@@ -179,6 +188,13 @@ button {
 
 .decrypt:active {
   background-color: var(--light-blue-400);
+}
+
+.decrypt:disabled {
+  color: var(--gray-300);
+  border-color: var(--gray-300);
+  /* background-color: var(--gray-100); */
+  cursor: not-allowed;
 }
 
 .copy {
@@ -207,7 +223,9 @@ button {
   font-weight: 700;
 }
 
-.error-title, .error-msg, .output-msg {
+.error-title,
+.error-msg,
+.output-msg {
   color: var(--gray-500);
   margin: 1rem 0;
 }

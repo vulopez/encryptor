@@ -32,16 +32,17 @@
       <!-- TODO: Paste button in Text area -->
       <!-- TODO: Clear button in Text area corner -->
 
+      <!-- TODO: Use a PopUp instead -->
       <alert>
         <img class="alert-icon" src="assets/icons/Alert.svg" alt="Alerta">
 
-        <span class="alert-msg">Solo letras minúsculas y sin acentos</span>
+        <span class="alert-msg">Ingrese el texto a procesar</span>
       </alert>
     </section>
 
     <section class="actions">
-      <button class="encrypt" onclick="tryEncrypt()">Encriptar</button>
-      <button class="decrypt">Desencriptar</button>
+      <button class="encrypt" onclick="tryEncrypt()" disabled>Encriptar</button>
+      <button class="decrypt" disabled>Desencriptar</button>
     </section>
   </main>
 
