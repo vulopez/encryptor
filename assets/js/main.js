@@ -83,9 +83,6 @@ function pairValues(text) {
 
 function tryEncrypt() {
     const text = input.value;
-    // Set as default default value: gray color
-    setTextColor("--gray-400", alertText);
-    alertIcon.setAttribute('src', "assets/icons/Alert.svg");
 
     contains(text, config.exceptions) ? cannotEncrypt() : encrypt(text);
 }
