@@ -32,12 +32,9 @@ input.addEventListener("input", function () {
     }
 
     if (input.value == '') {
-        console.log(true);
         alertText.innerHTML = "Ingrese el texto a procesar";
         btnEncrypt.setAttribute("disabled", "true");
         btnDecrypt.setAttribute("disabled", "true");
-    } else {
-
     }
 });
 
