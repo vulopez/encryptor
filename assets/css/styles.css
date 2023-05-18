@@ -85,7 +85,8 @@ main {
   border-radius: 1rem;
   font-size: 1.25rem;
   width: 100%;
-  height: calc(100vh - 20rem);
+  height: calc(100vh - 16.25rem);
+  height: calc(100svh - 16.25rem);
   padding: 1rem;
   resize: none;
   outline: none;
