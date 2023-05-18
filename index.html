@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desencriptador One</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="flex">
+      <img src="assets/icons/Alura.svg" alt="Logo de Alura">
+      <img class="settings" src="assets/icons/Settings.svg" alt="Configuración">
+    </div>
+  </header>
+
+  <main>
+    <section class="input">
+      <div class="container">
+        <!-- TODO: Check this autocomplete att -->
+        <textarea autofocus autocomplete="off" name="text" id="text" placeholder="Ingrese el texto aquí"></textarea>
+        <span class="info">alura-5 | strict</span>
+      </div>
+      <!-- TODO: Paste button in Text area -->
+      <!-- TODO: Clear button in Text area corner -->
+
+      <!-- TODO: Use a PopUp instead -->
+      <alert>
+        <img class="alert-icon" src="assets/icons/Alert.svg" alt="Alerta">
+
+        <span class="alert-msg">Ingrese el texto a procesar</span>
+      </alert>
+    </section>
+
+    <section class="actions">
+      <button class="encrypt" onclick="tryEncrypt()" disabled>Encriptar</button>
+      <button class="decrypt" onclick="tryDecrypt()" disabled>Desencriptar</button>
+    </section>
+  </main>
+
+  <aside>
+    <section class="output">
+      <p class="error-title">
+        Ningún mensaje fue encontrado
+      </p>
+      <p class="error-msg">
+        Ingresa el texto que desees encriptar o desencriptar.
+      </p>
+      <p class="output-msg">
+
+      </p>
+      <button class="copy">Copiar</button>
+    </section>
+
+    <footer>
+      Hecho con ❤️ por <a href="https://github.com/vulopez/">Vulopez</a>.
+    </footer>
+  </aside>
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>
