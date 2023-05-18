@@ -41,6 +41,7 @@ input.addEventListener("input", function () {
 const hash = {
     alura5: {
         encrypt: pairValues,
+        decrypt: replaceMatch,
         set: [
             ["a", "ai"],
             ["e", "enter"],
@@ -66,6 +67,16 @@ let config = {
     },
 };
 
+function replaceMatch(text) {
+    const keys = config.method.set;
+
+    for (const set of keys) {
+        text = text.replaceAll(set[1], set[0]);
+    }
+
+    return text;
+}
+
 function pairValues(text) {
     // TODO: Use `this`
     const keys = config.method.set;
@@ -79,6 +90,12 @@ function pairValues(text) {
     });
 
     return fixed.join("");
+}
+
+function tryDecrypt() {
+    const text = input.value;
+
+    contains(text, config.exceptions) ? cannotEncrypt() : decrypt(text);
 }
 
 function tryEncrypt() {
@@ -103,6 +120,15 @@ function contains(str, pattern) {
     }
 
     return false;
+}
+
+function decrypt(text) {
+    const method = config.method;
+
+    displayElement("none", errorTitle, errorMsg);
+    displayElement("block", output);
+
+    output.innerHTML = method.decrypt(text);
 }
 
 function encrypt(text) {
