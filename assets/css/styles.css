@@ -172,7 +172,7 @@ button {
 }
 
 .encrypt:disabled {
-  background-color: var(--gray-200);
+  background-color: var(--gray-300);
   cursor: not-allowed;
 }
 
@@ -194,7 +194,6 @@ button {
 .decrypt:disabled {
   color: var(--gray-300);
   border-color: var(--gray-300);
-  /* background-color: var(--gray-100); */
   cursor: not-allowed;
 }
 
