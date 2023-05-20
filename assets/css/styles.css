@@ -43,7 +43,6 @@
   box-sizing: border-box;
   /* font-family: "Plus Jakarta Sans", sans-serif; */
   font-family: sans-serif;
-  /* outline: solid 1px red; */
   border: none;
 }
 
@@ -197,21 +196,31 @@ button {
   cursor: not-allowed;
 }
 
-.copy {
+#copy {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 3rem;
+  height: 3rem;
   display: none;
-  background-color: inherit;
-  color: var(--dark-blue-300);
-  border: var(--dark-blue-300) 1px solid;
-  width: calc(100% - 2rem);
-  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-blue-300);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+#copy:hover {
+  background-color: var(--dark-blue-400);
 }
 
 /* Output */
 
 .output {
+  position: relative;
   margin-top: 2rem;
-  /* padding-top: 1rem; */
   padding: 1rem;
+  padding-bottom: 2.5rem;
   text-align: center;
   background-color: var(--white);
   border-radius: 1rem;
@@ -232,6 +241,7 @@ button {
 
 .output-msg {
   display: none;
+  font-size: 1rem;
 }
 
 footer {
