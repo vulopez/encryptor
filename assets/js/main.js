@@ -7,6 +7,8 @@ const alertText = document.querySelector(".alert-msg"); // alert title <p> selec
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
+const copyBtn = document.getElementById('copy');
+
 const btnEncrypt = document.querySelector(".encrypt");
 const btnDecrypt = document.querySelector(".decrypt");
 
@@ -129,6 +131,7 @@ function decrypt(text) {
     displayElement("block", output);
 
     output.innerHTML = method.decrypt(text);
+    displayElement("flex", copy);
 }
 
 function encrypt(text) {
@@ -138,6 +141,7 @@ function encrypt(text) {
     displayElement("block", output);
 
     output.innerHTML = method.encrypt(text);
+    displayElement("flex", copy);
 }
 
 function cannotEncrypt() {
@@ -165,6 +169,10 @@ function setTextColor(color, ...element) {
         elem.style.color = rs.getPropertyValue(color);
     }
 }
+
+copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(output.innerHTML);
+});
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
