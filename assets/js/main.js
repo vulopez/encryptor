@@ -7,7 +7,8 @@ const alertText = document.querySelector(".alert-msg"); // alert title <p> selec
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
-const copyBtn = document.getElementById("copy");
+const clearBtn = document.querySelector("#clear");
+const copyBtn = document.querySelector("#copy");
 
 const btnEncrypt = document.querySelector(".encrypt");
 const btnDecrypt = document.querySelector(".decrypt");
@@ -36,6 +37,10 @@ input.addEventListener("input", function () {
     alertText.innerHTML = "Ingrese el texto a procesar";
     btnEncrypt.setAttribute("disabled", "true");
     btnDecrypt.setAttribute("disabled", "true");
+
+    hideElement(clearBtn);
+  } else {
+    displayElement("flex", clearBtn);
   }
 });
 
@@ -169,9 +174,24 @@ function setTextColor(color, ...element) {
   }
 }
 
+clearBtn.addEventListener("click", () => {
+  hideElement(clearBtn);
+
+  input.value = "";
+  input.focus();
+});
+
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(output.innerHTML);
 });
+
+function hideElement(elem) {
+  elem.classList.add("disappear");
+  delay(200).then(() => {
+    elem.classList.remove("disappear");
+    displayElement("none", elem);
+  });
+}
 
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
