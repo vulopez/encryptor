@@ -174,6 +174,13 @@ function setTextColor(color, ...element) {
   }
 }
 
+clearBtn.addEventListener("click", () => {
+  hideElement(clearBtn);
+
+  input.value = "";
+  input.focus();
+});
+
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(output.innerHTML);
 });
