@@ -180,6 +180,7 @@ function setTextColor(color, ...element) {
 }
 
 clearBtn.addEventListener("click", () => {
+  disableActions();
   hideElement(clearBtn);
 
   input.value = "";
