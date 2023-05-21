@@ -34,9 +34,7 @@ input.addEventListener("input", function () {
   }
 
   if (input.value == "") {
-    alertText.innerHTML = "Ingrese el texto a procesar";
-    btnEncrypt.setAttribute("disabled", "true");
-    btnDecrypt.setAttribute("disabled", "true");
+    disableActions();
 
     hideElement(clearBtn);
   } else {
@@ -163,6 +161,13 @@ function displayElement(display, ...element) {
   for (const elem of element) {
     elem.style.display = display;
   }
+}
+
+function disableActions() {
+  alertText.innerHTML = "Ingrese el texto a procesar";
+
+  btnEncrypt.setAttribute("disabled", "true");
+  btnDecrypt.setAttribute("disabled", "true");
 }
 
 function setTextColor(color, ...element) {
