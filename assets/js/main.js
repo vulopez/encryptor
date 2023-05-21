@@ -38,11 +38,7 @@ input.addEventListener("input", function () {
     btnEncrypt.setAttribute("disabled", "true");
     btnDecrypt.setAttribute("disabled", "true");
 
-    clearBtn.classList.add("disappear");
-    delay(200).then(() => {
-      clearBtn.classList.remove("disappear");
-      displayElement("none", clearBtn);
-    });
+    hideElement(clearBtn);
   } else {
     displayElement("flex", clearBtn);
   }
@@ -181,6 +177,14 @@ function setTextColor(color, ...element) {
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(output.innerHTML);
 });
+
+function hideElement(elem) {
+  elem.classList.add("disappear");
+  delay(200).then(() => {
+    elem.classList.remove("disappear");
+    displayElement("none", elem);
+  });
+}
 
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
