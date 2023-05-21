@@ -7,7 +7,8 @@ const alertText = document.querySelector(".alert-msg"); // alert title <p> selec
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
-const copyBtn = document.getElementById("copy");
+const clearBtn = document.querySelector("#clear");
+const copyBtn = document.querySelector("#copy");
 
 const btnEncrypt = document.querySelector(".encrypt");
 const btnDecrypt = document.querySelector(".decrypt");
@@ -36,6 +37,14 @@ input.addEventListener("input", function () {
     alertText.innerHTML = "Ingrese el texto a procesar";
     btnEncrypt.setAttribute("disabled", "true");
     btnDecrypt.setAttribute("disabled", "true");
+
+    clearBtn.classList.add("disappear");
+    delay(200).then(() => {
+      clearBtn.classList.remove("disappear");
+      displayElement("none", clearBtn);
+    });
+  } else {
+    displayElement("flex", clearBtn);
   }
 });
 
