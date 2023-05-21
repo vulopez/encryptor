@@ -298,3 +298,15 @@ footer {
   transition-duration: 250ms;
   rotate: 60deg;
 }
+
+@media screen and (min-width: 540px) {
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .actions > button {
+    width: calc(50% - 0.5rem);
+  }
+}
+
