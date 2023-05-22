@@ -85,6 +85,7 @@ header {
   width: 100%;
   height: calc(100vh - 16.5rem);
   height: calc(100svh - 16.5rem);
+  min-height: 75px;
   padding: 1rem;
   padding-right: 4rem;
   resize: none;
