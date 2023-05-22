@@ -83,8 +83,8 @@ header {
   border-radius: 1rem;
   font-size: 1.25rem;
   width: 100%;
-  height: calc(100vh - 16.25rem);
-  height: calc(100svh - 16.25rem);
+  height: calc(100vh - 16.5rem);
+  height: calc(100svh - 16.5rem);
   padding: 1rem;
   padding-right: 4rem;
   resize: none;
@@ -308,6 +308,11 @@ footer {
 }
 
 @media screen and (min-width: 540px) {
+  #text {
+    height: calc(100vh - 12rem);
+    height: calc(100svh - 12rem);
+  }
+
   .actions {
     display: flex;
     justify-content: space-between;
@@ -332,10 +337,9 @@ footer {
     width: calc(40% - 0.5rem);
   }
 
-  #text,
   .output {
-    height: calc(100vh - 12.25rem);
-    height: calc(100svh - 12.25rem);
+    height: calc(100vh - 12rem);
+    height: calc(100svh - 12rem);
   }
 
   .dummy {
