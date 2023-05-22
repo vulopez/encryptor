@@ -55,9 +55,12 @@
 
 body {
   background-color: var(--light-blue-100);
+  margin-inline: auto;
+  max-width: 900px;
 }
 
 body > * {
+  overflow: hidden;
   margin: 0 1rem;
 }
 
@@ -65,16 +68,12 @@ body > * {
 
 header {
   border-radius: 0 0 1rem 1rem;
-  padding-top: 1rem;
+  padding: 1rem 0;
 }
 
 .flex {
   display: flex;
   justify-content: space-between;
-}
-
-main {
-  margin: 1rem;
 }
 
 /* Text */
@@ -260,7 +259,10 @@ button {
 
 .output {
   position: relative;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
   padding-bottom: 2.5rem;
   text-align: center;
@@ -271,6 +273,7 @@ button {
 
 .dummy {
   display: none;
+  width: 100%;
 }
 
 .error-title {
@@ -291,6 +294,7 @@ button {
 }
 
 footer {
+  margin: 2rem 0;
   text-align: center;
 }
 
@@ -315,6 +319,25 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
+  header + div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main {
+    width: calc(60% - 0.5rem);
+  }
+
+  aside {
+    width: calc(40% - 0.5rem);
+  }
+
+  #text,
+  .output {
+    height: calc(100vh - 12.25rem);
+    height: calc(100svh - 12.25rem);
+  }
+
   .dummy {
     display: inline;
   }
