@@ -22,52 +22,56 @@
     </div>
   </header>
 
-  <main>
-    <section class="input">
-      <div class="container">
-        <button id="clear">
-          <img src="assets/icons/Close.svg" alt="Limpiar campo">
+  <div>
+    <main>
+      <section class="input">
+        <div class="container">
+          <button id="clear">
+            <img src="assets/icons/Close.svg" alt="Limpiar campo">
+          </button>
+          <!-- TODO: Check this autocomplete att -->
+          <textarea autofocus autocomplete="off" name="text" id="text" placeholder="Ingrese el texto aquí"></textarea>
+          <span class="info">alura-5 | strict</span>
+        </div>
+        <!-- TODO: Paste button in Text area -->
+
+        <!-- TODO: Use a PopUp instead -->
+        <alert>
+          <img class="alert-icon" src="assets/icons/Alert.svg" alt="Alerta">
+
+          <span class="alert-msg">Ingrese el texto a procesar</span>
+        </alert>
+      </section>
+
+      <section class="actions">
+        <button class="encrypt" onclick="tryEncrypt()" disabled>Encriptar</button>
+        <button class="decrypt" onclick="tryDecrypt()" disabled>Desencriptar</button>
+      </section>
+    </main>
+
+    <aside>
+      <section class="output">
+        <img class="dummy" src="assets/img/Dummy.jpg" alt="Joven examinando con lupa una gema">
+
+        <p class="error-title">
+          Ningún mensaje fue encontrado
+        </p>
+        <p class="error-msg">
+          Ingresa el texto que desees encriptar o desencriptar.
+        </p>
+        <p class="output-msg">
+
+        </p>
+        <button id="copy">
+          <img src="assets/icons/Copy.svg" width="30" height="30" alt="Copiar texto">
         </button>
-        <!-- TODO: Check this autocomplete att -->
-        <textarea autofocus autocomplete="off" name="text" id="text" placeholder="Ingrese el texto aquí"></textarea>
-        <span class="info">alura-5 | strict</span>
-      </div>
-      <!-- TODO: Paste button in Text area -->
+      </section>
 
-      <!-- TODO: Use a PopUp instead -->
-      <alert>
-        <img class="alert-icon" src="assets/icons/Alert.svg" alt="Alerta">
-
-        <span class="alert-msg">Ingrese el texto a procesar</span>
-      </alert>
-    </section>
-
-    <section class="actions">
-      <button class="encrypt" onclick="tryEncrypt()" disabled>Encriptar</button>
-      <button class="decrypt" onclick="tryDecrypt()" disabled>Desencriptar</button>
-    </section>
-  </main>
-
-  <aside>
-    <section class="output">
-      <p class="error-title">
-        Ningún mensaje fue encontrado
-      </p>
-      <p class="error-msg">
-        Ingresa el texto que desees encriptar o desencriptar.
-      </p>
-      <p class="output-msg">
-
-      </p>
-      <button id="copy">
-        <img src="assets/icons/Copy.svg" width="30" height="30" alt="Copiar texto">
-      </button>
-    </section>
-
-    <footer>
-      Hecho con ❤️ por <a href="https://github.com/vulopez/">Vulopez</a>.
-    </footer>
-  </aside>
+      <footer>
+        Hecho con ❤️ por <a href="https://github.com/vulopez/">Vulopez</a>.
+      </footer>
+    </aside>
+  </div>
 </body>
 
 <script src="assets/js/main.js"></script>

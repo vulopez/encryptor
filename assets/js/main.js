@@ -4,6 +4,7 @@ const output = document.querySelector(".output-msg"); // response <p> selector
 const alertIcon = document.querySelector(".alert-icon"); // alert title <p> selector
 const alertText = document.querySelector(".alert-msg"); // alert title <p> selector
 
+const dummy = document.querySelector(".dummy");
 const errorTitle = document.querySelector(".error-title"); // error title <p> selector
 const errorMsg = document.querySelector(".error-msg"); // error message <p> selector
 
@@ -139,7 +140,7 @@ function decrypt(text) {
 function encrypt(text) {
   const method = config.method;
 
-  displayElement("none", errorTitle, errorMsg);
+  displayElement("none", dummy, errorTitle, errorMsg);
   displayElement("block", output);
 
   output.innerHTML = method.encrypt(text);
