@@ -51,6 +51,10 @@
   outline: 2px solid var(--light-blue-500);
 }
 
+img {
+  pointer-events: none;
+}
+
 /* Body */
 
 body {
