@@ -195,6 +195,10 @@ button {
   font-size: 18px;
 }
 
+.actions {
+  margin-bottom: 1rem;
+}
+
 .actions > button {
   width: 100%;
   height: 3.5rem;
@@ -327,6 +331,7 @@ footer {
 
   .actions > button {
     width: calc(50% - 0.5rem);
+    margin: 0;
   }
 }
 
