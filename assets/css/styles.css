@@ -52,6 +52,7 @@
 }
 
 img {
+  overflow: hidden;
   pointer-events: none;
 }
 
@@ -64,7 +65,6 @@ body {
 }
 
 body > * {
-  overflow: hidden;
   margin: 0 1rem;
 }
 
