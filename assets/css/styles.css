@@ -18,7 +18,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--light-blue-200);
+  background: inherit;
 }
 
 /* Handle */
@@ -53,7 +53,7 @@
 
 img {
   overflow: hidden;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 /* Body */
@@ -299,13 +299,29 @@ button {
 
 .output-msg {
   display: none;
+  max-height: 400px;
+  overflow: scroll;
   font-size: 1rem;
   word-break: break-all;
 }
 
 footer {
-  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  height: 6rem;
   text-align: center;
+}
+
+#contact {
+  /* max-width: 300px; */
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+#contact > li {
+  list-style-type: none;
 }
 
 .settings {
@@ -352,6 +368,11 @@ footer {
   .output {
     height: calc(100vh - 12rem);
     height: calc(100svh - 12rem);
+
+  }
+
+  .output-msg {
+    max-height: 100%;
   }
 
   .dummy {
