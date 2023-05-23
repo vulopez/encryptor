@@ -305,6 +305,7 @@ footer {
 }
 
 .settings {
+  display: none;
   width: 30px;
 }
 
